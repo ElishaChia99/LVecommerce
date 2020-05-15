@@ -1,0 +1,23 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Purchase extends Model
+{
+    //Table Name
+    protected $table = 'purchase';
+    //Primary key
+    public $primaryKey = 'id';
+    // Timestamps
+    public $timestamps = true;
+            
+    public function user(){
+        return $this->belongsTo('App\User', 'user_id');
+    }
+    
+    public function post(){
+        return $this->belongsTo('App\Post', 'post_id');
+    }
+}
